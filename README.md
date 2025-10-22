@@ -3,8 +3,6 @@
 
 ![alt text](<1_App/images/groWatch - logo_S-fundo_claro.png>)
 
-<!-- button linking to the GitHub Pages site -->
-[![View groWatch Site](https://img.shields.io/badge/View-groWatch%20Site-blue?style=for-the-badge&logo=github)](https://lince-icts.github.io/competicao-ESC_2025)
 
 <!-- button linking to the GitHub Pages site -->
 <p align="center">
