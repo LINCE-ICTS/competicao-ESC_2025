@@ -42,8 +42,8 @@ function plotData() {
             <h2>Informações do Tanque de Água</h2>
             <img style="width: 80px; height: auto;" src="images/tank-icon.png" alt="Tank Icon" id="tank-name">
             <p id="tank-info">
-                💧 PH: ${data.sensorPH ?? "?"}<br>
-                🌡️ Temp: ${data.sensorTemp ?? "?"} °C<br>
+                💧 Nível de PH: ${data.sensorPH ?? "?"}<br>
+                🌡️ Temperatura: ${data.sensorTemp ?? "?"} °C<br>
                 ⚡ Condutividade: ${data.sensorEleCond ?? "?"} mS/cm<br>
                 📦 Volume: ${data.sensorWaterVolum ?? "?"} cm³
             </p>
