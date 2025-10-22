@@ -1,5 +1,5 @@
 // Importa a conexão com o Firebase e as funções necessárias
-import { database } from "./firebase.js";
+import { database } from "./02_firebase.js";
 import { ref, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
 // Define os arrays para armazenar os dados

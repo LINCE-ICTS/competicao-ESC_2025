@@ -1,4 +1,4 @@
-import { lettuceState, cabbageState, tankData } from "./fetchTest-Data.js";
+import { lettuceState, cabbageState, tankData } from "./03_2_fetchTest-Data.js";
 
 // Botão para plot dos dados
 const dataBtn = document.getElementById('fetch-Data');

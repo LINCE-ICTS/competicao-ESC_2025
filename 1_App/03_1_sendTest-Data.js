@@ -1,5 +1,5 @@
 // Import da conexão criada com o Realtime Database por meio do "01_index.js"
-import { database } from "./firebase.js";
+import { database } from "./02_firebase.js";
 import { ref, set, push } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
 
 // Função para configurar os a estrutura de nós de teste
