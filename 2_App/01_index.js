@@ -6,6 +6,9 @@ const dataBtn = document.getElementById('fetch-Data');
 // Alternância de modo escuro/claro
 const darkMode = document.querySelector('.dark-mode');
 
+// Alternância para selecionar a planta
+const plantSelector = document.querySelector('.plant-type');
+
 // Seleciona o logo LINCE para troca dinâmica
 const logo_LINCE = document.getElementById('LINCE-name');
 
@@ -87,6 +90,13 @@ darkMode.addEventListener('click', () => {
     console.log("Tema alternado. Modo escuro:", document.body.classList.contains('dark-mode-variables'));
 });
 
+// Clique para selecionar o tipo de planta
+plantSelector.addEventListener('click', (event) => {
+    const selectedPlant = event.target;
+    // Alterna o ícone ativo (lettuce/cabbage)
+    plantSelector.querySelector('span:nth-child(1)').classList.toggle('active');
+    plantSelector.querySelector('span:nth-child(2)').classList.toggle('active');
+});
 // /* --- OPCIONAL: Inserir dados no painel (placeholder visual) --- */
 // // Exemplo: Atualizar blocos de dados (lettuce e cabbage) após coleta
 // function updateDataVisuals() {

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* ------------------------------------------- */
+/* Styling variables */
 :root {
   --color-primary: rgb(34, 116, 156);
   --color-text: rgb(0, 0, 0);
@@ -14,6 +16,9 @@
   --color-background2: rgb(44, 44, 49);
 }
 
+
+/* ------------------------------------------- */
+/* Global page styling */
 body {
   margin: 0;
   padding: 0;
@@ -28,11 +33,13 @@ html, body {
   overflow-x: hidden;  /* Prevent horizontal scroll */
 }
 
+
+/* ------------------------------------------- */
+/* Standard Styling for Container 1 */
 /* Ensure all elements respect container width */
 * {
   box-sizing: border-box;
 }
-
 .container-1 {
   display: flex;
   flex-direction: column;
@@ -41,14 +48,17 @@ html, body {
   overflow-x: hidden;
 }
 
+
+/* ------------------------------------------- */
+/* Navbar Styling */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background2);
-  padding: 10px 20px;
+  padding: 10px 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   height: 70px;
@@ -56,7 +66,7 @@ html, body {
 }
 
 #logo-groWatch img {
-  width: 130px;
+  width: 120px;
   height: auto;
 }
 
@@ -66,7 +76,6 @@ html, body {
   transform: translateX(-50%);
   text-align: center;
 }
-
 .LINCE-photo img {
   width: 100%;
   padding: 0px, 10px, 0px, 10px;
@@ -83,7 +92,6 @@ html, body {
   border-radius: var(--border-radius2);
   cursor: pointer;
 }
-
 .dark-mode span {
   width: 50%;
   display: flex;
@@ -91,19 +99,27 @@ html, body {
   align-items: center;
   transition: all 0.3s;
 }
-
 .dark-mode span.active {
   background-color: var(--color-primary);
   color: var(--color-background2);
   border-radius: 4px;
 }
 
+
+/* ------------------------------------------- */
+/* Content Page Styling */
 .content {
-  padding: 100px 20px 20px;
+  padding: 70px 20px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-button#fetch-Data {
+.content #title button#fetch-Data {
   margin-top: 20px;
   background-color: var(--color-primary);
   color: white;
@@ -115,13 +131,12 @@ button#fetch-Data {
   cursor: pointer;
   transition: all 0.3s;
 }
-
 button#fetch-Data:hover {
   transform: scale(1.05);
 }
 
 /* Data Output Blocks */
-#data-output {
+.content #data-output {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -131,7 +146,6 @@ button#fetch-Data:hover {
   background-color: var(--color-background2);
   box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
-
 /* Each visual block */
 .data-block {
   display: flex;
@@ -144,30 +158,88 @@ button#fetch-Data:hover {
   padding: 12px;
   transition: transform 0.3s ease;
 }
-
 .data-block:hover {
   transform: scale(1.03);
 }
-
 /* Icon styling */
 .data-block img {
   width: 50px;
   height: 50px;
   object-fit: contain;
 }
-
 /* Text styling */
 .data-block p {
   font-weight: 500;
   font-size: 1rem;
   color: var(--color-text);
 }
-
 /* Optional color accents */
 .data-block.lettuce {
   border-left: 6px solid rgb(34, 156, 87);
 }
-
 .data-block.cabbage {
   border-left: 6px solid rgb(101, 156, 34);
 }
+
+
+
+
+
+/* REVIEW */
+
+#plant-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Container */
+.plant-type {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100px;
+  height: 50px;
+  padding: 0px;
+
+  border: 3px solid rgb(79, 34, 156);
+  border-radius: 10px;
+  cursor: pointer;
+
+  /* background-color: rgb(79, 34, 156); */
+}
+
+/* Sliding background */
+.slider-bg {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: rgb(34, 156, 87);
+  border-radius: 8px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Icons */
+.plant-type img {
+  z-index: 2;
+  width: 45px;
+  height: 45px;
+  padding: 4px;
+  border-radius: 10px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.lettuce-option {
+  flex-direction: column;
+}
+
+/* Active icon highlight */
+.plant-type img.active {
+  filter: brightness(1) invert(1); /* Turns icon white */
+  transform: scale(1.1);
+}
+

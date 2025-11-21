@@ -14,7 +14,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
 
     <title>groWatch - Dashboard</title>
-    <!-- <style>
+    <style>
         /* Seção da Sidebar */
         body {
             border-style: dashed;
@@ -52,12 +52,31 @@
             border-width: 2px;
         }
 
-        body .container-1 .main {
+        body .content {
             border-style: dashed;
             border-color:rgb(0, 0, 255);
             border-width: 2px;
         }
-
+        body .content #title {
+            border-style: dashed;
+            border-color:rgb(0, 0, 0);
+            border-width: 2px;
+        }
+        body .content #data-output {
+            border-style: dashed;
+            border-color:rgb(64, 255, 0);
+            border-width: 2px;
+        }
+        body .content #tank-data {
+            border-style: dashed;
+            border-color:rgb(255, 64, 0);
+            border-width: 2px;
+        }
+        body .content #plant-selection {
+            border-style: dashed;
+            border-color:rgb(0, 64, 255);
+            border-width: 2px;
+        }
         
     </style> -->
 </head>
@@ -81,8 +100,10 @@
     </nav>
 
     <main class="content">
-        <h1>Supervisão dos Dados (Mobile)</h1>
-        <button id="fetch-Data">Coletar Dados</button>
+        <div id="title">
+          <h1>Supervisão dos Dados (Mobile)</h1>
+          <button id="fetch-Data">Coletar Dados</button>
+        </div>
 
         <div id="data-output">
             <div class="data-block lettuce" id="lettuce-block">
@@ -99,6 +120,23 @@
         <div id="tank-data">
             <!-- Dados do Tank -->
         </div>
+
+        <div id="plant-selection">
+            <h2>Selecione o tipo de planta</h2>
+
+            <div class="plant-type" id="plant-toggle">
+                <div class="slider-bg"></div>
+                
+                <div class="lettuce-option">
+                  <img src="images/lettuce-icon.png" alt="Lettuce" id="lettuce-select" class="plant-icon active">
+                  <!-- <p>Lettuce</p> -->
+                </div>
+                <div class="cabbage-option">
+                  <img src="images/cabbage-icon.png" alt="Cabbage" id="cabbage-select" class="plant-icon">
+                  <!-- <p>Cabbage</p> -->
+                </div>
+        </div>
+
     </main>
   </div>
 

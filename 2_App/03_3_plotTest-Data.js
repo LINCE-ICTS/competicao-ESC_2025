@@ -9,7 +9,7 @@ const cabbageBlock = document.getElementById('cabbage-block');
 
 // Função para mudar cor de Background com base nos valores das variáveis
 function updateBackgroundColor() {
-    if (lettuceState[0] === "1,0,1") { // Supondo que "1,0,1" indica um estado específico
+    if (lettuceState[0] === "1,0,0") { // Supondo que "1,0,1" indica um estado específico
         lettuceBlock.style.backgroundColor = "#229c576a"; // Verde claro para saudável
     } else {
         lettuceBlock.style.backgroundColor = "#94229c56"; // Vermelho claro para doente
