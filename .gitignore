@@ -2,3 +2,6 @@
 lettuce/
 lettuce_2/
 cabbage/
+
+# Communication Rasp-Firebase infos
+wifi.json
