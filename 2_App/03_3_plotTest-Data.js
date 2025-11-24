@@ -162,7 +162,45 @@ function plotData() {
         tankElement.innerHTML = `<p id="tank-info">Dados do tanque indisponíveis!!</p>`;
     }
 
-    // ... rest of your pumps data code
+    // Dados das bombas de água
+    const pumpsElement = document.getElementById('pumps-data');
+    // Verifica se há dados e se é um array
+    if (Array.isArray(pumpsData) && pumpsData.length > 0) {
+        const data = pumpsData[0]; // pega o primeiro objeto do array
+
+        pumpsElement.classList.add("data-block", "pumps");
+        pumpsElement.innerHTML = `
+            <h2>Nível de água das bombas</h2>
+           
+            <div class="pumps-info_grid">
+                <div class="pump-item">
+                    <div class="pump-icon">💧1</div>
+                    <div class="pump-label">Bomba 1</div>
+                    <div class="pump-value">${data.pump1WaterVolum ?? "?"} ml</div>
+                </div>
+                <div class="pump-item">
+                    <div class="pump-icon">💧2</div>
+                    <div class="pump-label">Bomba 2</div>
+                    <div class="pump-value">${data.pump2WaterVolum ?? "?"} ml</div>
+                </div>
+                <div class="pump-item">
+                    <div class="pump-icon">💧3</div>
+                    <div class="pump-label">Bomba 3</div>
+                    <div class="pump-value">${data.pump3WaterVolum ?? "?"} ml</div>
+                </div>
+                <div class="pump-item">
+                    <div class="pump-icon">💧4</div>
+                    <div class="pump-label">Bomba 4</div>
+                    <div class="pump-value">${data.pump4WaterVolum ?? "?"} ml</div>
+                </div>
+            </div>
+        `;
+    } else {
+        // Caso o array esteja vazio ou inválido
+        pumpsElement.innerHTML = `
+            <p id="tank-info">Dados das bombas indisponíveis!!</p>
+        `;
+    }
 }
 
 // Event listeners
