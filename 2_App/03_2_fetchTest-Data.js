@@ -6,6 +6,7 @@ import { ref, get, onValue } from "https://www.gstatic.com/firebasejs/9.6.10/fir
 var lettuceState = [];
 var cabbageState = [];
 var tankData = [];
+var pumpsData = [];
 
 // Função para buscar dados do Realtime Database
 function fetchTestData() {
@@ -28,12 +29,16 @@ function fetchTestData() {
                 if (data.tank) {
                     tankData.push(data.tank);
                 }
+                if (data.pumps) {
+                    pumpsData.push(data.pumps);
+                }
 
                 console.log("✅ Dados coletados com sucesso!");
                 alert("✅ Dados coletados com sucesso!");
                 console.log("Alface:", lettuceState);
                 console.log("Repolho:", cabbageState);
                 console.log("Tanque:", tankData);
+                console.log("Bombas:", pumpsData);
 
             } else {
                 console.log("⚠️ Nenhum dado encontrado no nó 'testData/newTestData'");
@@ -50,4 +55,4 @@ function fetchTestData() {
 fetchTestData();
 
 // Exporta os arrays (para uso em outro script ou HTML)
-export { lettuceState, cabbageState, tankData };
+export { lettuceState, cabbageState, tankData, pumpsData};

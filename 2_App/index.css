@@ -5,15 +5,19 @@
 :root {
   --color-primary: rgb(34, 116, 156);
   --color-text: rgb(0, 0, 0);
+  --color-waterText: #2c3e50;
   --color-background: rgb(221, 217, 217);
   --color-background2: white;
+  --background: transparent;
   --border-radius2: 8px;
 }
 
 .dark-mode-variables {
   --color-text: rgb(255, 255, 255);
+  --color-waterText: #c6e2ff;
   --color-background: rgb(32, 32, 36);
   --color-background2: rgb(44, 44, 49);
+  --background: linear-gradient(135deg, rgb(34, 77, 156) 0%, #3498db 100%);
 }
 
 
@@ -50,7 +54,7 @@ html, body {
 
 
 /* ------------------------------------------- */
-/* Navbar Styling */
+/* -------------- Navbar Styling ------------- */
 .nav {
   display: flex;
   justify-content: space-between;
@@ -107,7 +111,7 @@ html, body {
 
 
 /* ------------------------------------------- */
-/* Content Page Styling */
+/* ---------- Content Page Styling ----------- */
 .content {
   padding: 70px 20px 20px;
   max-width: 1200px;
@@ -119,24 +123,8 @@ html, body {
   justify-content: space-between;
 }
 
-.content #title button#fetch-Data {
-  margin-top: 20px;
-  background-color: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius2);
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-button#fetch-Data:hover {
-  transform: scale(1.05);
-}
-
-/* Data Output Blocks */
-.content #data-output {
+/* ** Data Output Blocks ** */
+.content #data-output_plants {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -153,13 +141,10 @@ button#fetch-Data:hover {
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
+  row-gap: 2px;
   background-color: var(--color-background);
   border-radius: var(--border-radius2);
   padding: 12px;
-  transition: transform 0.3s ease;
-}
-.data-block:hover {
-  transform: scale(1.03);
 }
 /* Icon styling */
 .data-block img {
@@ -168,25 +153,496 @@ button#fetch-Data:hover {
   object-fit: contain;
 }
 /* Text styling */
-.data-block p {
+.data-block table {
   font-weight: 500;
   font-size: 1rem;
   color: var(--color-text);
+  transition: transform 0.3s ease;
 }
-/* Optional color accents */
+.data-block #tank-info_table:hover {
+  transform: scale(1.03);
+}
+
+/* Color blocks accents */
 .data-block.lettuce {
   border-left: 6px solid rgb(34, 156, 87);
 }
 .data-block.cabbage {
   border-left: 6px solid rgb(101, 156, 34);
 }
+.data-block.tank {
+  border-left: 6px solid rgb(34, 77, 156);
+}
+.data-block.pumps {
+  border-left: 6px solid rgb(34, 100, 156);
+}
+
+
+/* FetchData Button */
+.content #title button#fetch-Data {
+  margin-top: 20px;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius2);
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button#fetch-Data:hover {
+  transform: scale(1.05);
+}
+
+
+/* Tank area */
+.data-block.tank {
+    /* background: #f8f9fa; */
+    border-radius: var(--border-radius2);
+    padding: 25px;
+    margin: 15px 0;
+}
+.data-block.tank h2 {
+    color: var(--color-waterText);
+    text-align: center;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgb(34, 77, 156);
+    padding-bottom: 10px;
+}
+.data-block.tank img {
+    display: block;
+    color: #2c3e50;
+    margin: 0 auto 25px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.103));
+}
+.tank-info_table {        /* Tank variables Data */
+    border-radius: var(--border-radius2);
+    background: var(--background);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(0, 0, 0, 0.932);
+    width: 80%;
+    margin: 5px 0 5px;
+    padding: 20px;
+    transition: transform 0.5s ease;
+}
+.tank-info_table:hover {
+    transform: translateY(-4px);
+}
+.tank-info_table td {
+    padding: 6px 15px;
+    border-bottom: 1px dashed rgb(34, 77, 156);
+}
+.tank-info_table tr:last-child td {
+    border-bottom: none;
+}
+.tank-icon_cell {
+    font-size: 1.1em;
+    text-align: center;
+    width: 50px;
+}
+.tank-info_table td:nth-child(2) {
+    text-align: left;
+    justify-content: flex-end;
+}
+.tank-info_table td:last-child {
+    font-size: 0.9em;
+}
+.historicData_Section {        /* Tank Historical Data */
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 0 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border-left: 4px solid rgb(34, 77, 156);
+    border-right: 4px solid rgb(34, 77, 156);
+}
+.historicData_Section:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0);
+}
+.historicData_Section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 10px;
+}
+.historicData_Section label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.95em;
+}
+#tankVar-selector {
+    position: relative;
+    max-width: 300px;
+}
+#select-var_choice {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    font-size: 14px;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    background-color: white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+}
+#select-var_choice:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.2);
+}
+#select-var_choice:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+#select-var_choice option {     /* Option styling */
+    padding: 10px 15px;
+    background-color: white;
+    color: #2c3e50;
+    font-size: 14px;
+}
+#select-var_choice option:hover {
+    background-color: #3498db !important;
+    color: white !important;
+}
+#select-var_choice option:checked {
+    background-color: #3498db;
+    color: white;
+}
+
+
+/* Historical DAta Plot */
+.historicalData_Plot {
+    width: 100%;
+    margin-top: 20px;
+}
+.historicalData_Plot .chart {
+    background-color: var(--color-background2);
+    padding: 20px;
+    border-radius: var(--border-radius2);
+    margin-top: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.historicalData_Plot .chart:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+/* Carousel styling for historical data */
+.historicalData_Plot .carousel {
+    width: 100%;
+    height: 400px;
+    background: var(--color-background2);
+    border-radius: var(--border-radius2);
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.historicalData_Plot .carousel__viewport {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.historicalData_Plot .carousel__viewport::-webkit-scrollbar {
+    display: none;
+}
+.historicalData_Plot .carousel__slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+    background: var(--color-background2);
+}
+.historicalData_Plot .carousel__snapper {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.historicalData_Plot .carousel__snapper h4 {
+    color: var(--color-waterText);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.historicalData_Plot .carousel__snapper p {
+    color: var(--color-text);
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+
+/* Chart Styling */
+.chart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chart-container h4 {
+    color: var(--color-waterText);
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.chart-content {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background: var(--color-background);
+    border-radius: var(--border-radius2);
+    min-height: 200px;
+}
+
+.chart-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+.bar {
+    width: 30px;
+    background: linear-gradient(to top, var(--color-primary), #3498db);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+    min-height: 10px;
+}
+
+.bar:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.bar-value {
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.bar-label {
+    font-size: 0.7em;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.chart-stats {
+    display: flex;
+    justify-content: space-around;
+    background: var(--color-background);
+    padding: 15px;
+    border-radius: var(--border-radius2);
+    margin-top: 10px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-label {
+    font-size: 0.8em;
+    color: var(--color-text);
+    opacity: 0.8;
+}
+
+.stat-value {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Line Chart Alternative */
+.line-chart {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background: var(--color-background);
+    border-radius: var(--border-radius2);
+    padding: 20px;
+}
+
+.chart-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid-line {
+    width: 1px;
+    background: rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.chart-line {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Charts */
+@media (max-width: 768px) {
+    .chart-bars {
+        gap: 5px;
+    }
+    
+    .bar {
+        width: 20px;
+    }
+    
+    .chart-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .stat-item {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 
 
 
 
 
-/* REVIEW */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pump area */
+.data-block.pumps {
+    /* background: #f8f9fa; */
+    border-radius: 12px;
+    padding: 25px;
+    margin: 15px 0;
+}
+.data-block.pumps h2 {
+    color: var(--color-waterText);
+    text-align: center;
+    margin-bottom: 5px;
+    border-bottom: 2px solid rgb(34, 100, 156);
+    padding-bottom: 10px;
+}
+.pumps-info_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    margin-top: 50px;
+
+    width: 60%;
+}
+.pump-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.pump-item:hover {
+    transform: translateY(-4px);
+}
+.pump-icon {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+.pump-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+.pump-value {
+    color: #3498db;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Plant Selection */
 #plant-selection {
   display: flex;
   flex-direction: column;
@@ -194,7 +650,20 @@ button#fetch-Data:hover {
   text-align: center;
 }
 
-/* Container */
+/* Plant Choice Background */
+.plant_choice-bg {
+  background: transparent url('../images/groWatch - logo_S-fundo_claro.png');
+  border-radius: var(--border-radius2);
+  width: 90%;
+  height: 120px;
+  margin: 5px 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Slider Button */
 .plant-type {
   position: relative;
   display: flex;
@@ -211,9 +680,7 @@ button#fetch-Data:hover {
 
   /* background-color: rgb(79, 34, 156); */
 }
-
-/* Sliding background */
-.slider-bg {
+.slider-bg {          /* Sliding background */
   position: absolute;
   width: 50%;
   height: 100%;
@@ -222,9 +689,7 @@ button#fetch-Data:hover {
   z-index: 1;
   transition: transform 0.3s ease;
 }
-
-/* Icons */
-.plant-type img {
+.plant-type img {     /* Icons */
   z-index: 2;
   width: 45px;
   height: 45px;
@@ -235,9 +700,7 @@ button#fetch-Data:hover {
 }
 .lettuce-option {
   flex-direction: column;
-}
-
-/* Active icon highlight */
+}                     /* Active icon highlight */
 .plant-type img.active {
   filter: brightness(1) invert(1); /* Turns icon white */
   transform: scale(1.1);

@@ -13,14 +13,15 @@ function newTestDataArch() {
     const lettuceStateRef = ref(database, `testData/${newTestDataRef.key}/lettuceState`);
     const cabbageStateRef = ref(database, `testData/${newTestDataRef.key}/cabbageState`);
     const tankRef = ref(database, `testData/${newTestDataRef.key}/tank`);
+    const pumpsRef = ref(database, `testData/${newTestDataRef.key}/pumps`);
 
-    return { newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef };
+    return { newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef, pumpsRef };
 }
 
-const { newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef } = newTestDataArch();
+const { newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef, pumpsRef } = newTestDataArch();
 
 // Função para enviar dados de teste ao Realtime Database
-function sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef) {
+function sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef, pumpsRef) {
     // ---* Dados de teste a serem enviados *---
     const newlettuceData = {
         dados: "1,0,1",
@@ -31,10 +32,17 @@ function sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef)
     };
 
     const tankData = {
-        sensorPH: 6.5, // [ph]
-        sensorEleCond: 1200, // [mS/cm]
-        sensorTemp: 24.0, // [°C]
-        sensorWaterVolum: 75.0, // [cm^3]
+        sensorPH: 2.3, // [ph]
+        sensorEleCond: 600, // [mS/cm]
+        sensorTemp: 22.0, // [°C]
+        sensorLDRressis: 42.0, // [cm^3]
+    };
+
+    const pumpsData = {
+        pump1WaterVolum: 510.0, // [cm^3]
+        pump2WaterVolum: 430.0, // [cm^3]
+        pump3WaterVolum: 275.0, // [cm^3]
+        pump4WaterVolum: 100.0, // [cm^3]
     };
 
     // Envia os dados de teste para o Realtime Database
@@ -67,7 +75,17 @@ function sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef)
             console.error("❌ Erro ao enviar dados do tanque:", error);
             alert("❌ Erro ao enviar dados do tanque:");
         });
+
+    set(pumpsRef, pumpsData)
+        .then(() => {
+            console.log("✅ Dados das bombas enviados com sucesso!");
+            alert("✅ Dados das bombas enviados com sucesso!");
+        })
+        .catch((error) => {
+            console.error("❌ Erro ao enviar dados das bombas:", error);
+            alert("❌ Erro ao enviar dados das bombas:");
+        });
 }
 
 // Chama a função para enviar os dados de teste
-sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef);
+sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef, pumpsRef);

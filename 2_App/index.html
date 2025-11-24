@@ -13,7 +13,11 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>groWatch - Dashboard</title>
+
     <style>
         /* Seção da Sidebar */
         body {
@@ -62,7 +66,7 @@
             border-color:rgb(0, 0, 0);
             border-width: 2px;
         }
-        body .content #data-output {
+        body .content #data-output_plants {
             border-style: dashed;
             border-color:rgb(64, 255, 0);
             border-width: 2px;
@@ -72,9 +76,49 @@
             border-color:rgb(255, 64, 0);
             border-width: 2px;
         }
+        body .content #tank-data .tank-icon_cell {
+            border-style: dashed;
+            border-color:rgb(255, 0, 64);
+            border-width: 2px;
+        }
+        body .content #tank-data .historicData_Section {
+            border-style: dashed;
+            border-color:rgb(0, 255, 0);
+            border-width: 2px;
+        }
+        body .content #tank-data .historicalData_Plot {
+            border-style: dashed;
+            border-color:rgb(255, 251, 0);
+            border-width: 2px;
+        }
+        .historicalData_Plot .chart {
+            border-style: dashed;
+            border-color:rgb(38, 0, 255);
+            border-width: 2px;
+        }
+        body .content #pumps-data {
+            border-style: dashed;
+            border-color:rgb(0, 102, 255);
+            border-width: 2px;
+        }
+        body .content #pumps-data .pumps-info_grid {
+            border-style: dashed;
+            border-color:rgb(153, 0, 255);
+            border-width: 2px;
+        }
         body .content #plant-selection {
             border-style: dashed;
-            border-color:rgb(0, 64, 255);
+            border-color:rgb(255, 251, 0);
+            border-width: 2px;
+        }
+        body .content #plant-selection .plant_choice-bg {
+            border-style: dashed;
+            border-color:rgb(153, 0, 255);
+            border-width: 2px;
+        }
+        body .content #plant-selection .plant-type {
+            border-style: dashed;
+            border-color:rgb(0, 255, 204);
             border-width: 2px;
         }
         
@@ -105,7 +149,7 @@
           <button id="fetch-Data">Coletar Dados</button>
         </div>
 
-        <div id="data-output">
+        <div id="data-output_plants">
             <div class="data-block lettuce" id="lettuce-block">
             <img src="images/lettuce-icon.png" alt="Lettuce Icon" id="lettuce-name">
             <p id ="lettuce-info"> "n Alfaces doentes"</p>
@@ -119,22 +163,32 @@
 
         <div id="tank-data">
             <!-- Dados do Tank -->
+            <!-- HTML gerado pelo "03_3_plotTest-Data.js"-->
+        </div>
+
+        <div id="pumps-data">
+            <!-- Dados das bombas de água -->
+            <!-- HTML gerado pelo "03_3_plotTest-Data.js"-->
         </div>
 
         <div id="plant-selection">
             <h2>Selecione o tipo de planta</h2>
-
-            <div class="plant-type" id="plant-toggle">
-                <div class="slider-bg"></div>
-                
-                <div class="lettuce-option">
-                  <img src="images/lettuce-icon.png" alt="Lettuce" id="lettuce-select" class="plant-icon active">
-                  <!-- <p>Lettuce</p> -->
-                </div>
-                <div class="cabbage-option">
-                  <img src="images/cabbage-icon.png" alt="Cabbage" id="cabbage-select" class="plant-icon">
-                  <!-- <p>Cabbage</p> -->
-                </div>
+            
+            <div class="plant_choice-bg">
+              <!-- <img src="images/groWatch - logo_S-fundo_escuro.png" alt="Logo" style="max-width: 100%; max-height: 100%;"> -->
+              <div class="plant-type" id="plant-toggle">
+                  <div class="slider-bg"></div>
+                  
+                  <div class="lettuce-option">
+                    <img src="images/lettuce-icon.png" alt="Lettuce" id="lettuce-select" class="plant-icon active">
+                    <!-- <p>Lettuce</p> -->
+                  </div>
+                  <div class="cabbage-option">
+                    <img src="images/cabbage-icon.png" alt="Cabbage" id="cabbage-select" class="plant-icon">
+                    <!-- <p>Cabbage</p> -->
+                  </div>
+              </div>
+            </div>
         </div>
 
     </main>
@@ -146,5 +200,6 @@
   <!-- <script type="module" src="03_1_sendTest-Data.js"></script> -->
   <script type="module" src="03_2_fetchTest-Data.js"></script>
   <script type="module" src="03_3_plotTest-Data.js"></script>
+  <!-- <script type="module" src="04_2_plotHist-Data.js"></script> -->
 </body>
 </html>

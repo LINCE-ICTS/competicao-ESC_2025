@@ -86,6 +86,34 @@ darkMode.addEventListener('click', () => {
     } else {
         tankIcon.src = 'images/tank-icon.png';
     }
+    // Atualiza o ícone de PH
+    const phIcon = document.getElementById('PH_icon-name');
+    if (document.body.classList.contains('dark-mode-variables')) {
+        phIcon.src = 'images/ph_level-icon_Escuro.png';
+    } else {
+        phIcon.src = 'images/ph_level-icon.png';
+    }
+    // Atualiza o ícone de Temperatura
+    const tempIcon = document.getElementById('Temp_icon-name');
+    if (document.body.classList.contains('dark-mode-variables')) {
+        tempIcon.src = 'images/temperature-icon_Escuro.png';
+    } else {
+        tempIcon.src = 'images/temperature-icon.png';
+    }
+    // Atualiza o ícone de Condutividade
+    const condIcon = document.getElementById('Cond_icon-name');
+    if (document.body.classList.contains('dark-mode-variables')) {
+        condIcon.src = 'images/condElect-icon_Escuro.png';
+    } else {
+        condIcon.src = 'images/condElect-icon.png';
+    }
+    // Atualiza o ícone de Luminosidade
+    const lumIcon = document.getElementById('Lum_icon-name');
+    if (document.body.classList.contains('dark-mode-variables')) {
+        lumIcon.src = 'images/lamp-icon_Escuro.png';
+    } else {
+        lumIcon.src = 'images/lamp-icon.png';
+    }
 
     console.log("Tema alternado. Modo escuro:", document.body.classList.contains('dark-mode-variables'));
 });
