@@ -28,13 +28,58 @@ function updateBackgroundColor() {
     }
 }
 
+function createSimpleChart(selectedParameter) {
+    const chartElement = document.getElementById('historical-chart');
+    const data = historicalData[selectedParameter];
+    const labels = ['6h', '7h', '8h', '9h', '10h', '11h', '12h'];
+    
+    const chartTitles = {
+        'choice-1': 'Histórico de Nível de PH',
+        'choice-2': 'Histórico de Temperatura',
+        'choice-3': 'Histórico de Condutividade', 
+        'choice-4': 'Histórico de Luminosidade'
+    };
+    
+    chartElement.innerHTML = `
+        <div class="chart-container">
+            <h4>${chartTitles[selectedParameter]}</h4>
+            <div class="chart-content">
+                <div class="chart-bars">
+                    ${data.map((value, index) => `
+                        <div class="bar-container">
+                            <div class="bar" style="height: ${(value / Math.max(...data)) * 80}%"></div>
+                            <span class="bar-value">${value}</span>
+                            <span class="bar-label">${labels[index]}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            <div class="chart-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Máximo:</span>
+                    <span class="stat-value">${Math.max(...data)}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Mínimo:</span>
+                    <span class="stat-value">${Math.min(...data)}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Média:</span>
+                    <span class="stat-value">${(data.reduce((a, b) => a + b) / data.length).toFixed(2)}</span>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+
 function createChartJS(selectedParameter) {
     const chartElement = document.getElementById('historical-chart');
     const data = historicalData[selectedParameter];
     const labels = ['6h', '7h', '8h', '9h', '10h', '11h', '12h'];
-
+    
     chartElement.innerHTML = `<canvas id="myChart"></canvas>`;
-
+    
     const ctx = document.getElementById('myChart').getContext('2d');
     new Chart(ctx, {
         type: 'line',
@@ -78,9 +123,32 @@ function getParameterName(selectedParameter) {
 }
 
 
+function createGaugeChart(selectedParameter) {
+    const chartElement = document.getElementById('historical-chart');
+    const currentValue = historicalData[selectedParameter][historicalData[selectedParameter].length - 1];
+    
+    chartElement.innerHTML = `
+        <div class="gauge-container">
+            <h4>${getParameterName(selectedParameter)} - Valor Atual</h4>
+            <div class="gauge">
+                <div class="gauge__fill" style="transform: rotate(${(currentValue / 10) * 180}deg)"></div>
+                <div class="gauge__cover">${currentValue}</div>
+            </div>
+            <div class="gauge-labels">
+                <span>0</span>
+                <span>5</span>
+                <span>10</span>
+            </div>
+        </div>
+    `;
+}
+
+
+
 function plotHistoricalData(selectedParameter) {
     // createSimpleChart(selectedParameter);
     createChartJS(selectedParameter);
+    // createGaugeChart(selectedParameter);
 }
 ;
 function plotData() {

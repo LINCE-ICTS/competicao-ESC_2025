@@ -249,7 +249,7 @@ button#fetch-Data:hover {
     font-size: 0.9em;
 }
 .historicData_Section {        /* Tank Historical Data */
-    background: white;
+    background: rgba(228, 245, 255, 0.932);
     border-radius: 12px;
     padding: 20px;
     margin: 0 0 10px;
@@ -286,7 +286,7 @@ button#fetch-Data:hover {
     font-size: 14px;
     border: 2px solid #bdc3c7;
     border-radius: 8px;
-    background-color: white;
+    background-color: rgba(228, 245, 255, 0.664);
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -308,7 +308,7 @@ button#fetch-Data:hover {
 }
 #select-var_choice option {     /* Option styling */
     padding: 10px 15px;
-    background-color: white;
+    background-color: rgba(228, 245, 255, 0.664);
     color: #2c3e50;
     font-size: 14px;
 }
@@ -322,7 +322,7 @@ button#fetch-Data:hover {
 }
 
 
-/* Historical DAta Plot */
+/* Historical Data Plot */
 .historicalData_Plot {
     width: 100%;
     margin-top: 20px;
@@ -546,6 +546,57 @@ button#fetch-Data:hover {
         flex-direction: row;
         justify-content: space-between;
     }
+}
+
+/* Gauge Chart */
+.gauge-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.gauge {
+    width: 200px;
+    height: 100px;
+    position: relative;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+.gauge__fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 0deg, var(--color-primary) 0%, #3498db 100%);
+    border-radius: 100px 100px 0 0;
+    transform-origin: center bottom;
+    transition: transform 0.5s ease;
+}
+
+.gauge__cover {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 60px;
+    background: var(--color-background2);
+    border-radius: 60px 60px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 auto;
+    color: var(--color-text);
 }
 
 
