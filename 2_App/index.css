@@ -127,19 +127,21 @@ html, body {
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
 /* ** Data Output Blocks ** */
 .content #data-output_plants {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 10px;
-  border-radius: var(--border-radius2);
-  background-color: var(--color-background2);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    width: 90%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 10px;
+    border-radius: var(--border-radius2);
+    background-color: var(--color-background2);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 /* Each visual block */
 .data-block {
@@ -202,6 +204,17 @@ button#fetch-Data:hover {
   transform: scale(1.05);
 }
 
+/* Diseassed Plants area */
+.location-list{
+    margin-top: 5px;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.location-list li{
+    color: rgb(202, 61, 61);
+    font-weight: bold;
+}
 
 /* Tank area */
 .data-block.tank {

@@ -7,6 +7,13 @@ const hist_dataSelect = document.getElementById('select-var_choice');
 const lettuceBlock = document.getElementById('lettuce-block');
 const cabbageBlock = document.getElementById('cabbage-block');
 
+// Diseassed Plants variables
+const diseasedPlants = [
+    { type: "lettuce", location: "Linha 2, Coluna 3" },
+    { type: "lettuce", location: "Linha 4, Coluna 1" },
+    { type: "cabbage", location: "Linha 1, Coluna 4" }
+];
+
 // Sample historical data (replace with your actual data)
 const historicalData = {
     'choice-1': [7.2, 7.1, 7.3, 7.0, 7.4, 7.2, 7.1], // PH data
@@ -14,6 +21,32 @@ const historicalData = {
     'choice-3': [1.2, 1.3, 1.1, 1.4, 1.2, 1.3, 1.1], // Conductivity
     'choice-4': [450, 480, 420, 460, 440, 470, 430] // Luminosity
 };
+
+
+function updatePlantDisplay(data){
+    let lettuceCount = 0;
+    let cabbageCount = 0;
+
+    const lettuceList = document.getElementById("lettuce-locations");
+    const cabbageList = document.getElementById("cabbage-locations");
+
+    lettuceList.innerHTML = "";
+    cabbageList.innerHTML = "";
+
+    data.forEach(p => {
+        if(p.type === "lettuce"){
+            lettuceCount++;
+            lettuceList.innerHTML += `<li>${p.location}</li>`;
+        }
+        if(p.type === "cabbage"){
+            cabbageCount++;
+            cabbageList.innerHTML += `<li>${p.location}</li>`;
+        }
+    });
+
+    document.getElementById("lettuce-info").innerText = `Alfaces doentes: ${lettuceCount}`;
+    document.getElementById("cabbage-info").innerText = `Couves doentes: ${cabbageCount}`;
+}
 
 function updateBackgroundColor() {
     if (lettuceState[0] === "1,0,0") {
@@ -84,9 +117,9 @@ function plotHistoricalData(selectedParameter) {
 }
 ;
 function plotData() {
-    // --- Existing code for plant data ---
-    document.getElementById("lettuce-info").textContent = `🟢 Alface`;
-    document.getElementById("cabbage-info").textContent = `🟠 Repolho`;
+    // // --- Existing code for plant data ---
+    // document.getElementById("lettuce-info").textContent = `🟢 Alface`;
+    // document.getElementById("cabbage-info").textContent = `🟠 Repolho`;
 
     // Dados do tanque
     const tankElement = document.getElementById('tank-data');
@@ -207,4 +240,5 @@ function plotData() {
 dataBtn.addEventListener('click', () => {
     plotData();
     updateBackgroundColor();
+    updatePlantDisplay(diseasedPlants)
 });
