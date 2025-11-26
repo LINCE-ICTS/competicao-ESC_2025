@@ -331,10 +331,13 @@ button#fetch-Data:hover {
 /* Historical Data Plot */
 .historicalData_Plot {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     margin-top: 20px;
+    overflow: hidden;
 }
 .historicalData_Plot .chart {
+    position: relative;
+    height: 240px;
     width: 100%;
     max-width: 100%;
     overflow: hidden;
