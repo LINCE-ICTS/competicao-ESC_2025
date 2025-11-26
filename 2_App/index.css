@@ -62,7 +62,7 @@ html, body {
   background-color: var(--color-background2);
   padding: 10px 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 70px;
@@ -735,6 +735,16 @@ button#fetch-Data:hover {
 
   /* background-color: rgb(79, 34, 156); */
 }
+/* .plant-type {        /* Tank Historical Data
+    background: rgba(228, 245, 255, 0.932);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 0 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border-left: 4px solid rgb(34, 77, 156);
+    border-right: 4px solid rgb(34, 77, 156);
+} */
 .slider-bg {          /* Sliding background */
   position: absolute;
   width: 50%;
@@ -751,13 +761,14 @@ button#fetch-Data:hover {
   padding: 4px;
   border-radius: 10px;
   transition: 0.25s;
+  position: relative;
   cursor: pointer;
 }
 .lettuce-option {
   flex-direction: column;
 }                     /* Active icon highlight */
-.plant-type img.active {
-  filter: brightness(1) invert(1); /* Turns icon white */
+/* .plant-type img.active {
+  filter: brightness(1) invert(1); Turns icon white
   transform: scale(1.1);
-}
+} */
 

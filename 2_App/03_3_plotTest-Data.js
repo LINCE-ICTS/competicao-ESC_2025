@@ -170,7 +170,7 @@ function plotData() {
 
         pumpsElement.classList.add("data-block", "pumps");
         pumpsElement.innerHTML = `
-            <h2>Nível de água das bombas</h2>
+            <h2>Volume de solução das bombas</h2>
            
             <div class="pumps-info_grid">
                 <div class="pump-item">
