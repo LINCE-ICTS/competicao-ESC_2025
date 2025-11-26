@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>groWatch - Dashboard</title>
-    <!--
+
     <style>
         /* Seção da Sidebar */
         body {
@@ -151,13 +151,13 @@
 
         <div id="data-output_plants">
             <div class="data-block lettuce" id="lettuce-block">
-            <img src="images/lettuce-icon.png" alt="Lettuce Icon" id="lettuce-name">
-            <p id ="lettuce-info"> "n Alfaces doentes"</p>
+                <img src="images/lettuce-icon.png" alt="Lettuce Icon" id="lettuce-name">
+                <p id ="lettuce-info"> "n Alfaces doentes"</p>
             </div>
 
             <div class="data-block cabbage" id="cabbage-block">
-            <img src="images/cabbage-icon.png" alt="Cabbage Icon" id="cabbage-name">
-            <p id="cabbage-info">"n Repolhos doentes"</p>
+                <img src="images/cabbage-icon.png" alt="Cabbage Icon" id="cabbage-name">
+                <p id="cabbage-info">"n Repolhos doentes"</p>
             </div>
         </div>
 
@@ -177,16 +177,17 @@
             <div class="plant_choice-bg">
               <!-- <img src="images/groWatch - logo_S-fundo_escuro.png" alt="Logo" style="max-width: 100%; max-height: 100%;"> -->
               <div class="plant-type" id="plant-toggle">
-                  <div class="slider-bg"></div>
-                  
-                  <div class="lettuce-option">
-                    <img src="images/lettuce-icon.png" alt="Lettuce" id="lettuce-select" class="plant-icon active">
-                    <!-- <p>Lettuce</p> -->
-                  </div>
-                  <div class="cabbage-option">
-                    <img src="images/cabbage-icon.png" alt="Cabbage" id="cabbage-select" class="plant-icon">
-                    <!-- <p>Cabbage</p> -->
-                  </div>
+                    <div class="slider-bg"></div>
+                    
+                    <div class="lettuce-option" id="plant_option">
+                        <img src="images/lettuce-icon.png" alt="Lettuce" id="lettuce-select" class="plant-icon active">
+                        <p class="caption">Lettuce</p>
+                    </div>
+                    
+                    <div class="cabbage-option" id="plant_option">
+                        <img src="images/cabbage-icon.png" alt="Cabbage" id="cabbage-select" class="plant-icon">
+                        <p class="caption">Cabbage</p>
+                    </div>
               </div>
             </div>
         </div>

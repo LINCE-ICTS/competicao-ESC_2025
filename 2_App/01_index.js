@@ -7,7 +7,9 @@ const dataBtn = document.getElementById('fetch-Data');
 const darkMode = document.querySelector('.dark-mode');
 
 // Alternância para selecionar a planta
-const plantSelector = document.querySelector('.plant-type');
+const plantToggle = document.querySelector('.plant-type');
+const slider = document.querySelector(".slider-bg");
+let toggleState = false; // começa à esquerda
 
 // Seleciona o logo LINCE para troca dinâmica
 const logo_LINCE = document.getElementById('LINCE-name');
@@ -114,16 +116,28 @@ darkMode.addEventListener('click', () => {
     } else {
         lumIcon.src = 'images/lamp-icon.png';
     }
+    
+    // Atualiza os iconês das culturas (lettuce e cabbage), em Seleção de plantas
+    const lettuceSelection = document.getElementById('lettuce-select');
+    const cabbageSelection = document.getElementById('cabbage-select');
+    if (document.body.classList.contains('dark-mode-variables')) {
+        lettuceSelection.src = 'images/lettuce-icon_Escuro.png';
+    } else {
+        lettuceSelection.src = 'images/lettuce-icon.png';
+    }
+    if (document.body.classList.contains('dark-mode-variables')) {
+        cabbageSelection.src = 'images/cabbage-icon_Escuro.png';
+    } else {
+        cabbageSelection.src = 'images/cabbage-icon.png';
+    }
 
     console.log("Tema alternado. Modo escuro:", document.body.classList.contains('dark-mode-variables'));
 });
 
 // Clique para selecionar o tipo de planta
-plantSelector.addEventListener('click', (event) => {
-    const selectedPlant = event.target;
-    // Alterna o ícone ativo (lettuce/cabbage)
-    plantSelector.querySelector('span:nth-child(1)').classList.toggle('active');
-    plantSelector.querySelector('span:nth-child(2)').classList.toggle('active');
+plantToggle.addEventListener('click', (event) => {
+    toggleState = !toggleState
+    slider.classList.toggle("right", toggleState);
 });
 // /* --- OPCIONAL: Inserir dados no painel (placeholder visual) --- */
 // // Exemplo: Atualizar blocos de dados (lettuce e cabbage) após coleta
