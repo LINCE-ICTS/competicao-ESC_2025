@@ -30,6 +30,12 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
 }
+/* EVITA QUE O CANVAS ESTIQUE A PÁGINA */
+#historical-chart canvas {
+    width: 100% !important;
+    max-width: 100%;
+    display: block;
+}
 
 html, body {
   width: 100%;
@@ -402,7 +408,7 @@ button#fetch-Data:hover {
 
 
 /* Chart Styling */
-.chart-container {
+/* .chart-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -497,10 +503,10 @@ button#fetch-Data:hover {
     font-size: 1.1em;
     font-weight: 600;
     color: var(--color-primary);
-}
+} */
 
 /* Line Chart Alternative */
-.line-chart {
+/* .line-chart {
     width: 100%;
     height: 200px;
     position: relative;
@@ -529,10 +535,10 @@ button#fetch-Data:hover {
     position: relative;
     width: 100%;
     height: 100%;
-}
+} */
 
 /* Responsive Charts */
-@media (max-width: 768px) {
+@media (max-width: 740px) {
     .chart-bars {
         gap: 5px;
     }
@@ -553,7 +559,7 @@ button#fetch-Data:hover {
 }
 
 /* Gauge Chart */
-.gauge-container {
+/* .gauge-container {
     text-align: center;
     padding: 20px;
 }
@@ -601,7 +607,7 @@ button#fetch-Data:hover {
     width: 200px;
     margin: 0 auto;
     color: var(--color-text);
-}
+} */
 
 
 
