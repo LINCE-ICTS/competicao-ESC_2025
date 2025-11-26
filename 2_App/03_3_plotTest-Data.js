@@ -9,9 +9,9 @@ const cabbageBlock = document.getElementById('cabbage-block');
 
 // Diseassed Plants variables
 const diseasedPlants = [
-    { type: "lettuce", location: "Linha 2, Coluna 3" },
-    { type: "lettuce", location: "Linha 4, Coluna 1" },
-    { type: "cabbage", location: "Linha 1, Coluna 4" }
+    { type: "lettuce", location: "Ramo 1, Posição 1" },
+    { type: "lettuce", location: "Ramo 1, Posição 2" },
+    { type: "lettuce", location: "Ramo 1, Posição 3" }
 ];
 
 // Sample historical data (replace with your actual data)
@@ -46,15 +46,13 @@ function updatePlantDisplay(data){
 
     document.getElementById("lettuce-info").innerText = `Alfaces doentes: ${lettuceCount}`;
     document.getElementById("cabbage-info").innerText = `Couves doentes: ${cabbageCount}`;
-}
 
-function updateBackgroundColor() {
-    if (lettuceState[0] === "1,0,0") {
+    if (lettuceCount >= "1") {
         lettuceBlock.style.backgroundColor = "#229c576a";
     } else {
         lettuceBlock.style.backgroundColor = "#94229c56";
     }
-    if (cabbageState[0] === "0,0,1") {
+    if (cabbageCount >= "1") {
         cabbageBlock.style.backgroundColor = "#659c225e";
     } else {
         cabbageBlock.style.backgroundColor = "#94229c56";
@@ -196,32 +194,57 @@ function plotData() {
     }
 
     // Dados das bombas de água
+    var pump1Warn = "transparent"
+    var pump2Warn = "transparent"
+    var pump3Warn = "transparent"
+    var pump4Warn = "transparent"
     const pumpsElement = document.getElementById('pumps-data');
     // Verifica se há dados e se é um array
     if (Array.isArray(pumpsData) && pumpsData.length > 0) {
         const data = pumpsData[0]; // pega o primeiro objeto do array
+        
+        if (data.pump1WaterVolum <= 100) {
+            pump1Warn = "rgba(188, 35, 35, 0.56)"
+        } else {
+            console.log("🧪 Solução protegidas!")
+        }
+        if (data.pump2WaterVolum <= 100) {
+            pump2Warn = "rgba(188, 35, 35, 0.56)"
+        } else {
+            console.log("🧪 Solução protegidas!")
+        }
+        if (data.pump3WaterVolum <= 100) {
+            pump3Warn = "rgba(188, 35, 35, 0.56)"
+        } else {
+            console.log("🧪 Solução protegidas!")
+        }
+        if (data.pump4WaterVolum == 100) {
+            pump4Warn = "rgba(188, 35, 35, 0.56)"
+        } else {
+            console.log("🧪 Solução protegidas!")
+        }
 
         pumpsElement.classList.add("data-block", "pumps");
         pumpsElement.innerHTML = `
             <h2>Volume de solução das bombas</h2>
            
             <div class="pumps-info_grid">
-                <div class="pump-item">
+                <div class="pump-item" style="border-color: ${pump1Warn};">
                     <div class="pump-icon">💧1</div>
                     <div class="pump-label">Bomba 1</div>
                     <div class="pump-value">${data.pump1WaterVolum ?? "?"} ml</div>
                 </div>
-                <div class="pump-item">
+                <div class="pump-item" style="border-color: ${pump2Warn};">
                     <div class="pump-icon">💧2</div>
                     <div class="pump-label">Bomba 2</div>
                     <div class="pump-value">${data.pump2WaterVolum ?? "?"} ml</div>
                 </div>
-                <div class="pump-item">
+                <div class="pump-item" style="border-color: ${pump3Warn};">
                     <div class="pump-icon">💧3</div>
                     <div class="pump-label">Bomba 3</div>
                     <div class="pump-value">${data.pump3WaterVolum ?? "?"} ml</div>
                 </div>
-                <div class="pump-item">
+                <div class="pump-item" style="border-color: ${pump4Warn}; background=${pump4Warn};">
                     <div class="pump-icon">💧4</div>
                     <div class="pump-label">Bomba 4</div>
                     <div class="pump-value">${data.pump4WaterVolum ?? "?"} ml</div>
@@ -239,6 +262,5 @@ function plotData() {
 // Event listeners
 dataBtn.addEventListener('click', () => {
     plotData();
-    updateBackgroundColor();
-    updatePlantDisplay(diseasedPlants)
+    updatePlantDisplay(diseasedPlants);
 });

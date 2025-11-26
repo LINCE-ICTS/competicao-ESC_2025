@@ -679,7 +679,8 @@ button#fetch-Data:hover {
     width: 60%;
 }
 .pump-item {
-    background: white;
+    background: rgb(255, 255, 255);
+    border-color: transparent;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
@@ -690,6 +691,7 @@ button#fetch-Data:hover {
     transform: translateY(-4px);
 }
 .pump-icon {
+    color: black;
     font-size: 1.5em;
     margin-bottom: 8px;
 }

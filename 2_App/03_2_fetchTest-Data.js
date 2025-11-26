@@ -36,7 +36,7 @@ function fetchTestData() {
                 console.log("✅ Dados coletados com sucesso!");
                 alert("✅ Dados coletados com sucesso!");
                 console.log("Alface:", lettuceState);
-                console.log("Repolho:", cabbageState);
+                console.log("Couve:", cabbageState);
                 console.log("Tanque:", tankData);
                 console.log("Bombas:", pumpsData);
 

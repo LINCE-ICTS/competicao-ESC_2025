@@ -32,8 +32,8 @@ function sendTestData(newTestDataRef, lettuceStateRef, cabbageStateRef, tankRef,
     };
 
     const tankData = {
-        sensorPH: 2.3, // [ph]
-        sensorEleCond: 600, // [mS/cm]
+        sensorPH: 7.5, // [ph]
+        sensorEleCond: 460, // [mS/cm]
         sensorTemp: 22.0, // [°C]
         sensorLDRressis: 42.0, // [cm^3]
     };
